@@ -79,5 +79,11 @@ $('#username input').focusout(function() {
   let reg = /[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9]/g;
   if(len.length == 0) {
     $('#username .warn').html('<span class="text-red">필수 정보입니다.</span>');
+  } else if(reg.test(len)) {
+    $('#username .warn').html('<span class="text-red">한글과 영문 대 소문자를 사용하세요. (특수기호 사용불가)</span>');
+    // 정규식을 만족하면 true 만족하지 않으면 false 반환
+  } else {
+    nameveri = true;
+    $('#username .warn').empty();
   }
 })
